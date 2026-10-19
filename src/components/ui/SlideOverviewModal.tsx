@@ -1,7 +1,6 @@
 import React from 'react';
-import { X, ArrowRight } from 'lucide-react';
+import { X } from 'lucide-react';
 import { SLIDES_DATA } from '../../types/presentation';
-import { sound } from '../../utils/sound';
 
 interface SlideOverviewModalProps {
   isOpen: boolean;
@@ -19,70 +18,50 @@ export const SlideOverviewModal: React.FC<SlideOverviewModalProps> = ({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-950/80 backdrop-blur-md animate-fadeIn">
-      <div className="glass-panel w-full max-w-5xl max-h-[88vh] rounded-2xl border border-white/10 shadow-2xl overflow-hidden flex flex-col">
-        {/* Modal Header */}
-        <div className="px-6 py-4 border-b border-white/10 flex items-center justify-between bg-slate-900/60">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-8 bg-zinc-950/85 backdrop-blur-sm select-none">
+      <div className="w-full max-w-4xl max-h-[85vh] rounded-2xl bg-[#121214] border border-zinc-800 shadow-2xl overflow-hidden flex flex-col">
+        {/* Header */}
+        <div className="px-6 py-4 border-b border-zinc-800 flex items-center justify-between">
           <div>
-            <h2 className="text-xl font-bold text-white tracking-tight flex items-center gap-2">
-              <span className="text-cyan-400">Presentation Overview</span>
-              <span className="text-xs px-2 py-0.5 rounded bg-cyan-950/60 border border-cyan-500/30 text-cyan-300 font-mono">
-                10 Slides
-              </span>
-            </h2>
-            <p className="text-xs text-slate-400">
-              Jump instantly to any chapter or milestone in the calculus deck
-            </p>
+            <h2 className="text-sm font-semibold text-zinc-100">Slide Overview</h2>
+            <p className="text-xs text-zinc-500">Jump directly to any slide in the deck</p>
           </div>
           <button
-            onClick={() => {
-              sound.playClick();
-              onClose();
-            }}
-            className="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-white/10 transition-colors"
+            onClick={onClose}
+            aria-label="Close overview"
+            className="p-1 rounded-md text-zinc-400 hover:text-white transition-colors"
           >
-            <X className="w-5 h-5" />
+            <X className="w-4 h-4" />
           </button>
         </div>
 
-        {/* Slides Grid */}
-        <div className="p-6 overflow-y-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {/* 10-Slide Grid */}
+        <div className="p-6 overflow-y-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
           {SLIDES_DATA.map((slide) => {
             const isCurrent = slide.id === currentSlide;
             return (
               <div
                 key={slide.id}
                 onClick={() => {
-                  sound.playSlideTransition();
                   onSelectSlide(slide.id);
                   onClose();
                 }}
-                className={`group cursor-pointer rounded-xl p-4 transition-all duration-200 border text-left flex flex-col justify-between ${
+                className={`p-3.5 rounded-xl border text-left cursor-pointer transition-colors flex flex-col justify-between ${
                   isCurrent
-                    ? 'bg-cyan-950/40 border-cyan-500/60 shadow-[0_0_20px_rgba(0,194,255,0.2)]'
-                    : 'bg-slate-900/40 border-white/5 hover:border-cyan-500/30 hover:bg-slate-800/40'
+                    ? 'bg-zinc-800/60 border-zinc-500'
+                    : 'bg-zinc-900/40 border-zinc-800 hover:border-zinc-700'
                 }`}
               >
                 <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="font-mono text-xs font-bold text-cyan-400 bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-500/30">
-                      SLIDE {String(slide.id).padStart(2, '0')}
-                    </span>
-                    <span className="text-[10px] uppercase font-semibold text-slate-400 font-mono tracking-wider">
-                      {slide.category}
-                    </span>
+                  <div className="text-[11px] font-mono text-zinc-500 mb-1">
+                    #{String(slide.id).padStart(2, '0')}
                   </div>
-                  <h3 className="text-sm font-bold text-white group-hover:text-cyan-300 transition-colors line-clamp-1">
+                  <h3 className="text-xs font-semibold text-zinc-200 line-clamp-1">
                     {slide.title}
                   </h3>
-                  <p className="text-xs text-slate-400 mt-1 line-clamp-2">
+                  <p className="text-[11px] text-zinc-500 line-clamp-2 mt-1 leading-snug">
                     {slide.subtitle}
                   </p>
-                </div>
-
-                <div className="mt-4 pt-2 border-t border-white/5 flex items-center justify-between text-[11px] text-slate-500 group-hover:text-cyan-400">
-                  <span>{slide.section}</span>
-                  <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                 </div>
               </div>
             );
