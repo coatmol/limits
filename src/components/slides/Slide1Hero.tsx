@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export const Slide1Hero: React.FC = () => {
   return (
@@ -18,19 +18,22 @@ export const Slide1Hero: React.FC = () => {
           Limits: From Intuition to Proof
         </h1>
         <p className="text-lg md:text-xl text-zinc-400 font-normal leading-relaxed pt-1">
-          A rigorous journey from geometric intuition and indeterminate forms to the formal <span className="text-zinc-200 font-serif italic">ε–δ</span> definition and mathematical proofs.
+          A rigorous journey from geometric intuition and indeterminate forms to
+          the formal{" "}
+          <span className="text-zinc-200 font-serif italic">ε–δ</span>{" "}
+          definition and mathematical proofs.
         </p>
       </div>
 
       {/* Bottom Metadata Footer */}
       <div className="pt-6 border-t border-zinc-800/80 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-zinc-400">
         <div>
-          <span className="text-zinc-500 uppercase font-mono tracking-wider text-[11px] block">Presenter</span>
-          <span className="text-zinc-200 font-medium text-sm">Omar Elgohary</span>
-        </div>
-        <div className="sm:text-right">
-          <span className="text-zinc-500 uppercase font-mono tracking-wider text-[11px] block">Supervision</span>
-          <span className="text-zinc-300 font-medium">Dr. Mahmoud Mohamed & Eng. Youssef Hamed</span>
+          <span className="text-zinc-500 uppercase font-mono tracking-wider text-[11px] block">
+            Presenter
+          </span>
+          <span className="text-zinc-200 font-medium text-sm">
+            Omar Elgohary (26-100092)
+          </span>
         </div>
       </div>
     </div>

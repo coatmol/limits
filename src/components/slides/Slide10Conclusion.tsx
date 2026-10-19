@@ -1,16 +1,33 @@
-import React from 'react';
+import React from "react";
 
 interface Slide10ConclusionProps {
   onRestart?: () => void;
 }
 
-export const Slide10Conclusion: React.FC<Slide10ConclusionProps> = ({ onRestart }) => {
+export const Slide10Conclusion: React.FC<Slide10ConclusionProps> = ({
+  onRestart,
+}) => {
   const takeaways = [
-    { title: 'Intuition', text: 'Limits observe values in the neighborhood of x = a without evaluating at the point itself.' },
-    { title: 'Applications', text: 'Bridges discrete calculations to instantaneous rates, Big-O algorithm growth, and ML optimization.' },
-    { title: 'Algebraic Laws', text: 'Sum, Product, Quotient, and Squeeze theorems enable algebraic manipulation of limits.' },
-    { title: 'The ε–δ Framework', text: 'Replaces hand-wavy descriptions with rigorous challenge-and-response inequalities.' },
-    { title: 'Analytical Proofs', text: 'Techniques like the ε-budget and auxiliary bounding provide mathematical certainty.' },
+    {
+      title: "Intuition",
+      text: "Limits observe values in the neighborhood of x = a without evaluating at the point itself.",
+    },
+    {
+      title: "Applications",
+      text: "Bridges discrete calculations to instantaneous rates, Big-O algorithm growth, and ML optimization.",
+    },
+    {
+      title: "Algebraic Laws",
+      text: "Sum, Product, Quotient, and Squeeze theorems enable algebraic manipulation of limits.",
+    },
+    {
+      title: "The ε–δ Framework",
+      text: "Replaces hand-wavy descriptions with rigorous challenge-and-response inequalities.",
+    },
+    {
+      title: "Analytical Proofs",
+      text: "Techniques like the ε-budget and auxiliary bounding provide mathematical certainty.",
+    },
   ];
 
   return (
@@ -33,7 +50,9 @@ export const Slide10Conclusion: React.FC<Slide10ConclusionProps> = ({ onRestart 
         <div className="space-y-2.5">
           {takeaways.map((item, idx) => (
             <div key={idx} className="text-xs text-zinc-400 leading-relaxed">
-              <span className="font-semibold text-zinc-200 mr-1.5">• {item.title}:</span>
+              <span className="font-semibold text-zinc-200 mr-1.5">
+                • {item.title}:
+              </span>
               {item.text}
             </div>
           ))}
@@ -52,12 +71,12 @@ export const Slide10Conclusion: React.FC<Slide10ConclusionProps> = ({ onRestart 
 
           <div className="space-y-2 pt-2 border-t border-zinc-800/80">
             <div>
-              <span className="text-zinc-500 text-[11px] block">Presenter:</span>
-              <span className="text-zinc-200 font-medium">Omar Elgohary</span>
-            </div>
-            <div>
-              <span className="text-zinc-500 text-[11px] block">Supervision & Review:</span>
-              <span className="text-zinc-300">Dr. Mahmoud Mohamed & Eng. Youssef Hamed</span>
+              <span className="text-zinc-500 text-[11px] block">
+                Presenter:
+              </span>
+              <span className="text-zinc-200 font-medium">
+                Omar Elgohary (26-100092)
+              </span>
             </div>
           </div>
 
