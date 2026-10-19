@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #080B14;
+    color: #F1F5F9;
+    overflow-x: hidden;
+  }
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  }
+}
+
+/* Glassmorphism Styles */
+.glass-panel {
+  background: rgba(13, 19, 36, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-cyan {
+  background: rgba(8, 24, 45, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 194, 255, 0.25);
+  box-shadow: 0 10px 30px -5px rgba(0, 194, 255, 0.15);
+}
+
+.glass-panel-gold {
+  background: rgba(28, 22, 10, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 184, 0, 0.25);
+  box-shadow: 0 10px 30px -5px rgba(255, 184, 0, 0.15);
+}
+
+.glass-card-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-card-hover:hover {
+  transform: translateY(-3px);
+  border-color: rgba(0, 194, 255, 0.4);
+  box-shadow: 0 12px 35px -8px rgba(0, 194, 255, 0.2);
+}
+
+/* Ambient Radial Glows */
+.bg-ambient-radial {
+  background-image: 
+    radial-gradient(circle at 15% 15%, rgba(0, 194, 255, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 85% 85%, rgba(255, 184, 0, 0.08) 0%, transparent 45%),
+    radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.06) 0%, transparent 60%);
+}
+
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+/* KaTeX tweaks for dark theme presentation */
+.katex {
+  font-size: 1.1em;
+  color: #F8FAFC !important;
+}
+.katex-display {
+  margin: 0.5em 0 !important;
+}
+.katex .mord.mathnormal {
+  color: #7DD3FC !important;
+}
+.katex .mbin, .katex .mrel {
+  color: #FCD34D !important;
+}
+.katex .mopen, .katex .mclose {
+  color: #CBD5E1 !important;
+}
+
+/* Custom sleek scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(8, 11, 20, 0.7);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.25);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 194, 255, 0.5);
+}
